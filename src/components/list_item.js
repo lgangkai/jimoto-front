@@ -7,12 +7,9 @@ import PriceDisplay from "./price_display";
 import {useNavigate} from "react-router-dom";
 import axios from "axios";
 
-function ListItem({item, isEdit}) {
+function ListItem({item, isEdit, onDeleteClick}) {
     const navigate = useNavigate();
     const onItemClick = ()=>{navigate(`/item_detail/${item.id}`)}
-    const onDeleteClick = ()=>{
-        axios.post(`http://localhost:8080/api/commodity/${item.id}/action/unlike`).then((data)=>{}).catch((err)=>console.log(err))
-    }
     return <Flex vertical={true} style={isEdit?{}:{cursor: "pointer"}} onClick={isEdit?()=>{}:onItemClick}>
         <Flex vertical={false}>
             <div style={{
@@ -51,7 +48,7 @@ function ListItem({item, isEdit}) {
                     display: "flex",
                 }}/>
             </Flex>
-            <DeleteFilled style={isEdit?{cursor: "pointer"}:{display:"none"}} onClick={onDeleteClick}/>
+            <DeleteFilled style={isEdit?{cursor: "pointer"}:{display:"none"}} onClick={()=>onDeleteClick(item.id)}/>
         </Flex>
     </Flex>
 }
