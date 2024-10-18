@@ -1,4 +1,4 @@
-import HeaderWithSearch from "../components/header";
+import AppHeader from "../components/Header/AppHeader/app_header";
 import BackIcon from "../components/back_icon";
 import React, {useState} from "react";
 import ImageGroupUploader from "../components/image_group_uploader";
@@ -42,7 +42,7 @@ function Publish() {
     return <Flex vertical={true} style={{
     }}>
         {contextHolder}
-        <HeaderWithSearch onlyShowLogo={true}/>
+        <AppHeader onlyShowLogo={true}/>
         <BackIcon/>
         <div style={{
             fontWeight: "bold",

@@ -1,12 +1,14 @@
-import { useRoutes } from "react-router-dom";
-import Home from "../pages/home";
+import {useRoutes} from "react-router-dom";
+import Home from "../pages/Home/home";
 import Login from "../pages/login";
 import Register from "../pages/register";
 import ItemDetail from "../pages/item_detail";
 import PrivateRouter from "./private_router";
 import RegisterSuccess from "../pages/register_success";
 import Publish from "../pages/publish";
-import LikeList from "../pages/like_list";
+import LikeList from "../pages/LikeList/like_list";
+import Profile from "../pages/Profile/profile";
+import ProfileEdit from "../pages/ProfileEdit/profile_edit";
 
 const routes = [
     {
@@ -37,9 +39,16 @@ const routes = [
         path: "/like-list",
         element: (<LikeList></LikeList>)
     },
+    {
+        path: "/profile",
+        element: (<Profile></Profile>)
+    },
+    {
+        path: "/profile-edit",
+        element: (<ProfileEdit></ProfileEdit>)
+    }
 ];
 
 export default function RouterView() {
-    const elem = useRoutes(routes);
-    return elem;
+    return useRoutes(routes);
 }

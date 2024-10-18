@@ -1,5 +1,5 @@
 import RouterView from "./router";
-import { HashRouter as Router, NavLink } from "react-router-dom";
+import { BrowserRouter as Router, NavLink } from "react-router-dom";
 import axios from "axios";
 import { Provider } from "react-redux";
 import store from "./store";

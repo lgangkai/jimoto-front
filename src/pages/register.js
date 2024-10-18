@@ -1,4 +1,4 @@
-import HeaderWithSearch from "../components/header";
+import AppHeader from "../components/Header/AppHeader/app_header";
 import React, {useState} from "react";
 import {Button, Col, Form, Input, message, Row} from "antd";
 import {LeftOutlined, WarningOutlined} from '@ant-design/icons';
@@ -37,7 +37,7 @@ function Register() {
     const navigate = useNavigate();
     return <div>
         {/*{contextHolder}*/}
-        <HeaderWithSearch onlyShowLogo={true}/>
+        <AppHeader onlyShowLogo={true}/>
         <BackIcon/>
         <Row justify="center" align="top">
             <Col>

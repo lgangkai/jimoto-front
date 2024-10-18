@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import {LockOutlined, UserOutlined, WarningOutlined} from '@ant-design/icons';
 import {Button, Col, Form, Input, Row} from 'antd';
-import HeaderWithSearch from "../components/header";
+import AppHeader from "../components/Header/AppHeader/app_header";
 import axios from "axios";
 import {useNavigate} from "react-router-dom";
 import BackIcon from "../components/back_icon";
@@ -47,7 +47,7 @@ const Login = () => {
     const [loading, setLoading] = useState(false)
     return (
         <div>
-            <HeaderWithSearch onlyShowLogo={true}/>
+            <AppHeader onlyShowLogo={true}/>
             <BackIcon/>
             <Row justify="center" align="top">
                 <Col>

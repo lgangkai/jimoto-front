@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import {Breadcrumb, Layout, Flex, theme, Row} from 'antd';
 import Item from "./item";
+import API from "../api/api"
 import { css } from '@emotion/react';
 const { Header, Content, Footer } = Layout;
 
@@ -11,15 +12,11 @@ function ContentList() {
         token: { colorBgContainer, borderRadiusLG },
     } = theme.useToken();
 
-    const [post, setPost] = useState([]);
     useEffect(() => {
-        axios.get("http://localhost:8080/api/commodities/latest").then((data) => {
-            console.log(data);
-            var jsonObj = JSON.parse(data?.data?.data)
-            setPost(jsonObj);
-            console.log(jsonObj);
-        }).catch((err)=>console.log(err));
-    }, []);
+        API.getLatestCommodities().then((res) => {setPost(res);})
+    }, [])
+
+    const [post, setPost] = useState([]);
 
     return <Row justify="center" align="top">
         {post.map((item, i) => {

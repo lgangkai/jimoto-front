@@ -2,7 +2,7 @@ import {Flex, Image, Row, Col, Radio, Avatar, Button} from "antd";
 import { useParams, useLocation } from 'react-router-dom';
 import Item from "../components/item";
 import no_image from "../assets/images/no_image.png"
-import HeaderWithSearch from "../components/header";
+import AppHeader from "../components/Header/AppHeader/app_header";
 import PriceDisplay from "../components/price_display";
 import {useEffect, useState} from "react";
 import ImageGroup from "../components/image_group";
@@ -41,7 +41,7 @@ function ItemDetail() {
         }).catch((err)=>console.log(err));
     }, []);
     return <div style={{paddingBottom:100}}>
-        <HeaderWithSearch onlyShowLogo={false}></HeaderWithSearch>
+        <AppHeader onlyShowLogo={false}></AppHeader>
         <Row justify="center" align="top">
             <Col>
                 <ImageGroup images={images}/>
