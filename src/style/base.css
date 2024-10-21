@@ -9,9 +9,19 @@ body {
     font-weight: bold;
 }
 
+.text-title-h1-center {
+    font-size: 25px;
+    font-weight: bold;
+    align-self: center;
+}
+
 .text-title-h2 {
     font-size: 18px;
     font-weight: bold;
+}
+
+.text-title-h3 {
+    font-size: 18px;
 }
 
 .layout-form-center-container {
@@ -34,8 +44,18 @@ body {
     border-radius: 50%;
 }
 
+.avatar-medium {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}
+
 .avatar-small {
     width: 35px;
     height: 35px;
     border-radius: 50%;
+}
+
+.form-item-not-display {
+    display: none;
 }

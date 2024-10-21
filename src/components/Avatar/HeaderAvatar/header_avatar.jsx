@@ -1,5 +1,5 @@
 import {useNavigate} from "react-router-dom";
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 import {getUserIdIfIsLogin} from "../../../utils/auth";
 import {Button, Dropdown} from "antd";
 import avatar_not_login from "../../../assets/images/avatar_not_login.png";
@@ -11,7 +11,7 @@ function HeaderAvatar() {
     const navigate = useNavigate();
     const items = [
         {
-            label: <div onClick={()=>navigate('/profile')}>基本情報</div>,
+            label: <div onClick={()=>navigate(`/profile/${uId}`)}>基本情報</div>,
             key: '0',
         },
         {
@@ -34,7 +34,9 @@ function HeaderAvatar() {
         },
     ];
     const [uId, setUId] = useState(-1)
-    getUserIdIfIsLogin().then((data)=>setUId(data))
+    useEffect(() => {
+        getUserIdIfIsLogin().then((data)=>setUId(data))
+    }, [])
     return <Dropdown className={"avatar-dropdown"} menu={{ items }} trigger={['click']}>
         <Button
             className="avatar-btn"

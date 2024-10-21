@@ -90,7 +90,7 @@ function ItemDetail() {
                     marginTop: 10,
                     marginBottom: 10,
                 }}>
-                    <SellerInfo/>
+                    <SellerInfo creator_id={item.creator_id}/>
                     <Button type={"primary"} danger shape={"round"} style={{
                         width: "50%",
                         height: 40,

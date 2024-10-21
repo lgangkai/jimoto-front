@@ -1,7 +1,7 @@
 import AppHeader from "../../components/Header/AppHeader/app_header";
 import {Button, Flex} from "antd";
 import avatar_not_login from "../../assets/images/avatar_not_login.png";
-import {useNavigate} from "react-router-dom";
+import {useNavigate, useParams} from "react-router-dom";
 import {useEffect, useState} from "react";
 import API from "../../api/api";
 import "./profile.css"
@@ -9,13 +9,14 @@ import "../../style/base.css"
 
 function Profile() {
     document.title = "プロフィール"
+    const userId = useParams()["user_id"]
     const navigate = useNavigate();
     const [profile, setProfile] = useState({})
     useEffect(() => {
-        API.getProfile().then((res)=>{
+        API.getProfile({user_id: userId}).then((res)=>{
             setProfile(res)
         })
-    }, []);
+    }, [userId]);
     return <Flex vertical={true}>
         <AppHeader onlyShowLogo={false}></AppHeader>
         <div className="layout-content-center-vertical">

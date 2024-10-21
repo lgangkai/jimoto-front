@@ -1,0 +1,32 @@
+.image-group-selector-div {
+    margin-bottom: 30px;
+    height: 215px;
+    padding: 10px;
+    background-color: #ebebeb;
+    border: dashed grey;
+}
+
+.publish-btn {
+    width: 100%;
+    height: 45px;
+    font-size: 22px;
+    font-weight: bold;
+    margin-top: 30px;
+}
+
+.publish-text-area-description {
+    height: 180px;
+    resize: none;
+}
+
+.publish-price-area {
+    width: 100%;
+}
+
+.publish-display-address {
+    font-size: 14px;
+    color: dimgray;
+    background-color: lightgray;
+    padding: 5px 8px 5px 8px;
+    border-radius: 10px;
+}

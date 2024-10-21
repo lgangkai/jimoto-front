@@ -5,7 +5,7 @@ import Register from "../pages/register";
 import ItemDetail from "../pages/item_detail";
 import PrivateRouter from "./private_router";
 import RegisterSuccess from "../pages/register_success";
-import Publish from "../pages/publish";
+import Publish from "../pages/Publish/publish";
 import LikeList from "../pages/LikeList/like_list";
 import Profile from "../pages/Profile/profile";
 import ProfileEdit from "../pages/ProfileEdit/profile_edit";
@@ -40,7 +40,7 @@ const routes = [
         element: (<LikeList></LikeList>)
     },
     {
-        path: "/profile",
+        path: "/profile/:user_id",
         element: (<Profile></Profile>)
     },
     {
