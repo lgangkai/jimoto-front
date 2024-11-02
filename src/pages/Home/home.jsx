@@ -1,7 +1,9 @@
-import MyFooter from "../../components/footer";
-import ContentList from "../../components/content_list";
+import MyFooter from "@/components/Header/Footer/footer";
+import ContentList from "@/pages/Home/Components/ContentList/content_list";
 import {Helmet} from "react-helmet";
-import AppHeader from "../../components/Header/AppHeader/app_header";
+import AppHeader from "@/components/Header/AppHeader/app_header";
+import FilterBar from "@/pages/Home/Components/FilterBar/filter_bar";
+import "./home.css"
 
 function Home() {
     return (
@@ -13,7 +15,10 @@ function Home() {
                 <link rel="canonical" href={""}/>
             </Helmet>
             <AppHeader onlyShowLogo={false}/>
-            <ContentList/>
+            <div className="home-body">
+                <FilterBar/>
+                <ContentList/>
+            </div>
             <MyFooter></MyFooter>
         </div>
     );

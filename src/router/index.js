@@ -1,10 +1,10 @@
 import {useRoutes} from "react-router-dom";
 import Home from "../pages/Home/home";
-import Login from "../pages/login";
-import Register from "../pages/register";
-import ItemDetail from "../pages/item_detail";
-import PrivateRouter from "./private_router";
-import RegisterSuccess from "../pages/register_success";
+import Login from "../pages/Login/login";
+import Register from "../pages/Register/register";
+import ItemDetail from "../pages/ItemDetail/item_detail";
+import AuthRouter from "./auth_router";
+import RegisterSuccess from "../pages/Register/RegisterSuccess/register_success";
 import Publish from "../pages/Publish/publish";
 import LikeList from "../pages/LikeList/like_list";
 import Profile from "../pages/Profile/profile";
@@ -29,7 +29,7 @@ const routes = [
     },
     {
         path: "/publish",
-        element: (<PrivateRouter><Publish></Publish></PrivateRouter>)
+        element: (<AuthRouter><Publish></Publish></AuthRouter>)
     },
     {
         path: "/register-success",
@@ -46,6 +46,10 @@ const routes = [
     {
         path: "/profile-edit",
         element: (<ProfileEdit></ProfileEdit>)
+    },
+    {
+        path: "*",
+        element: (<div>404 not found</div>)
     }
 ];
 

@@ -1,11 +1,11 @@
 import {Button, Flex, Form, Input, message} from "antd";
-import AppHeader from "../../components/Header/AppHeader/app_header";
+import AppHeader from "@/components/Header/AppHeader/app_header";
 import React, {useEffect, useState} from "react";
 import {useNavigate} from "react-router-dom";
-import API from "../../api/api";
 import "./profile_edit.css"
-import AvatarUploader from "../../components/Avatar/AvatarUploader/avatar_uploader";
-import "../../style/base.css"
+import AvatarUploader from "@/components/Avatar/AvatarUploader/avatar_uploader";
+import "@/style/base.css"
+import {getProfile, updateProfile} from "@/apis/user";
 
 function ProfileEdit() {
     document.title = "プロフィール編集"
@@ -15,23 +15,24 @@ function ProfileEdit() {
     const [form] = Form.useForm();
     // call without useEffect leads to dead loop
     useEffect(() => {
-        API.getProfile().then((res)=>{
-            setProfile(res)
-            console.log(res)
-        })
+        getProfile(
+            {},
+            (data) => {setProfile(data)}
+        )
     }, []);
     const onFinish = (values) => {
         console.log('Received values of form: ', values);
-        API.updateProfile(values).then((resp) => {
-            console.log(resp)
-            messageApi.success("更新完了", 1, ()=>navigate(-1))
-        }).catch((err) => {
-            if (err.response?.status === 401) {
-                messageApi.error("まだ未登録です", 1, ()=>navigate(-1))
-            }　else {
-                messageApi.error("ネットワーク通信エラー、少々待ちください")
+        updateProfile(
+            values,
+            () => messageApi.success("更新完了", 1, ()=>navigate(-1)),
+            (err) => {
+                if (err.response?.status === 401) {
+                    messageApi.error("まだ未登録です", 1, ()=>navigate(-1))
+                }　else {
+                    messageApi.error("ネットワーク通信エラー、少々待ちください")
+                }
             }
-        })
+        )
     };
     const onAvatarUploaded = ({filename}) => {
         console.log(filename)

@@ -1,0 +1,21 @@
+.like-list-img-div {
+    width: 80px;
+    height: 80px;
+    background-color: #ebebeb;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+}
+
+.like-list-img {
+    max-width: 80px;
+    max-height: 80px;
+}
+
+.like-list-title {
+    font-size: 20px;
+    font-weight: bold;
+    height: 50%;
+    align-items: center;
+    display: flex;
+}

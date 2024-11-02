@@ -1,10 +1,11 @@
 import {Input, Button} from 'antd';
 import {useNavigate} from "react-router-dom";
-import HeaderAvatar from "../../Avatar/HeaderAvatar/header_avatar";
+import HeaderAvatar from "@/components/Avatar/HeaderAvatar/header_avatar";
 import {Header} from "antd/es/layout/layout";
 import "./app_header.css"
-import logo from "../../../assets/images/logo.png";
-import LocationTab from "../../Location/LocationTab/location_tab";
+import logo from "@/assets/images/logo.png";
+import LocationTab from "@/components/Location/LocationTab/location_tab";
+import classNames from "classnames";
 const { Search } = Input;
 
 function AppHeader({onlyShowLogo}) {
@@ -18,11 +19,17 @@ function AppHeader({onlyShowLogo}) {
             onClick={() => navigate('/')}
         />
         <Search
+            className={classNames({
+                "search-bar": true,
+                "invisible": onlyShowLogo,
+            })}
             placeholder="物、サービスを探す"
             // onSearch={onSearch}
-            style={onlyShowLogo ? {width: 600, visibility: 'hidden'} : {width: 600, visibility: 'visible'}}
         />
-        <div style={onlyShowLogo ? {display: 'flex', visibility: 'hidden'} : {display: 'flex', visibility: 'visible'}}>
+        <div className={classNames({
+            "header-btn-div": true,
+            "invisible": onlyShowLogo,
+        })}>
             <HeaderAvatar/>
             <Button
                 className="btn-publish"

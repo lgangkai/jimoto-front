@@ -1,0 +1,28 @@
+.image-group-cover {
+    width: 260px;
+    height: 390px;
+    background-color: #ebebeb;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+}
+
+.image-select-group {
+    margin: 5px;
+    width: 40px;
+    height: 70px;
+    background-color: #ebebeb;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+}
+
+.selected {
+    border: 1px solid #021a40;
+}
+
+.image-group-select {
+    width: 40px;
+    cursor:pointer;
+    max-height: 100%;
+}

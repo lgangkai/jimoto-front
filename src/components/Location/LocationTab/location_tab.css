@@ -6,4 +6,6 @@
     font-weight: bold;
     text-decoration-color: white;
     color: white;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }

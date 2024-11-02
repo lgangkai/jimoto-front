@@ -1,24 +1,21 @@
-import AppHeader from "../../components/Header/AppHeader/app_header";
+import AppHeader from "@/components/Header/AppHeader/app_header";
 import {Divider, Flex} from "antd";
-import ListItem from "../../components/list_item";
+import ListItem from "@/pages/LikeList/Components/ListItem/list_item";
 import {CheckOutlined, EditOutlined} from "@ant-design/icons";
 import {useEffect, useState} from "react";
-import API from "../../api/api";
 import "./like_list.css"
-import "../../style/base.css"
+import "@/style/base.css"
+import {getLikeList, unlike} from "@/apis/commodity";
 
 function LikeList() {
     document.title = "ジモト ｰ いいねリスト"
     const [itemList, setItemList] = useState([])
     const [isEdit, setIsEdit] = useState(false)
-    useEffect(()=>{
-        API.getLikeList().then((res) => {
-            setItemList(res)
-        })
+    useEffect(()=> {
+        getLikeList((data) => {setItemList(data)})
     }, []);
     const onDeleteClick = (id)=>{
-        API.unlike(id).then((data)=>{})
-        setItemList(itemList.filter((item) => item.id !== id))
+        unlike(id, () => setItemList(itemList.filter((item) => item.id !== id)))
     }
     return <Flex vertical={true}>
         <AppHeader onlyShowLogo={false}></AppHeader>

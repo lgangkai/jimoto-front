@@ -15,3 +15,23 @@
     margin-right: 30px;
     cursor: pointer;
 }
+
+.search-bar {
+    width: 600px;
+    visibility: visible;
+}
+
+.search-bar.invisible {
+    width: 600px;
+    visibility: hidden;
+}
+
+.header-btn-div {
+    display: flex;
+    visibility: visible;
+}
+
+.header-btn-div.invisible {
+    display: flex;
+    visibility: hidden;
+}

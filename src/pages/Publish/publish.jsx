@@ -1,15 +1,14 @@
-import AppHeader from "../../components/Header/AppHeader/app_header";
-import BackIcon from "../../components/back_icon";
+import AppHeader from "@/components/Header/AppHeader/app_header";
+import BackIcon from "@/components/Button/BackIcon/back_icon";
 import React, {useState} from "react";
-import ImageGroupUploader from "../../components/image_group_uploader";
+import ImageGroupUploader from "@/pages/Publish/Components/ImageGroupUploader/image_group_uploader";
 import {Button, ConfigProvider, Flex, Form, Input, InputNumber, message} from "antd";
 import TextArea from "antd/es/input/TextArea";
-import axios from "axios";
 import {useNavigate} from "react-router-dom";
-import "../../style/base.css"
+import "@/style/base.css"
 import "./publish.css"
 import {useSelector} from "react-redux";
-import API from "../../api/api";
+import {publishCommodity} from "@/apis/commodity";
 
 function Publish() {
     document.title = "ジモト ｰ 投稿"
@@ -19,16 +18,18 @@ function Publish() {
     const {latitude, longitude, displayAddress} = useSelector(state => state.location)
     const onFinish = (values) => {
         console.log('Received values of form: ', values);
-        API.publishCommodity(values).then((resp) => {
-            messageApi.success("投稿完了", 1, ()=>navigate(-1))
-        }).catch((err) => {
-            console.log(err)
-            if (err.response?.status === 401) {
-                messageApi.error("まだ未登録です", 1, ()=>navigate(-1))
-            }　else {
-                messageApi.error("ネットワーク通信エラー、少々待ちください")
+        publishCommodity(
+            values,
+            () => messageApi.success("投稿完了", 1, ()=>navigate(-1)),
+            (err) => {
+                console.log(err)
+                if (err.response?.status === 401) {
+                    messageApi.error("まだ未登録です", 1, ()=>navigate(-1))
+                }　else {
+                    messageApi.error("ネットワーク通信エラー、少々待ちください")
+                }
             }
-        });
+        )
     };
     const [fileList, setFileList] = useState([]);
     const handleImgListChange = ({ fileList: newFileList }) => {

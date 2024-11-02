@@ -1,0 +1,13 @@
+.register-success-top {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 90vh;
+    flex-direction: column;
+}
+
+.register-success-back-btn {
+    color: blue;
+    cursor: pointer;
+    text-decoration: underline;
+}

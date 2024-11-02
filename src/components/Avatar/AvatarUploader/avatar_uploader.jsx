@@ -1,9 +1,9 @@
 import {Button, Flex, message, Upload} from "antd";
-import API from "../../../api/api";
-import no_image from "../../../assets/images/no_image.png";
+import no_image from "@/assets/images/no_image.png";
 import {useEffect, useState} from "react";
 import "./avatar_uploader.css"
-import "../../../style/base.css"
+import "@/style/base.css"
+import {getUploadApiUrl} from "@/apis/common";
 
 function AvatarUploader(props) {
     const [previewImage, setPreviewImage] = useState(no_image);
@@ -26,7 +26,7 @@ function AvatarUploader(props) {
 
     const upload_props = {
         name: 'image',
-        action: API.getUploadApiUrl(),
+        action: getUploadApiUrl(),
         accept: "image/png, image/jpg, image/jpeg",
         onChange: handleOnChange,
         showUploadList: false,

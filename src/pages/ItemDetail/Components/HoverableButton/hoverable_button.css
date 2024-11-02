@@ -1,0 +1,40 @@
+.hoverable-button {
+    margin-top: 20px;
+    margin-left: 10px;
+    width:50px;
+    padding:5px;
+    cursor: pointer;
+}
+
+.hoverable-button-seller {
+    width: 50%;
+    height: 100%;
+    padding: 10px;
+    cursor: pointer;
+    align-items: center;
+}
+
+.hovering {
+    background-color: #ebebeb;
+}
+
+.hoverable-button-icon {
+    width:50px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+.hoverable-button-text {
+    width:50px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    margin-top:5px;
+}
+
+.right-out-lined {
+    display: flex;
+    height: 100%;
+    justify-content: flex-end;
+}

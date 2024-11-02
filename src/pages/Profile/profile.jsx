@@ -1,11 +1,11 @@
-import AppHeader from "../../components/Header/AppHeader/app_header";
+import AppHeader from "@/components/Header/AppHeader/app_header";
 import {Button, Flex} from "antd";
-import avatar_not_login from "../../assets/images/avatar_not_login.png";
+import avatar_not_login from "@/assets/images/avatar_not_login.png";
 import {useNavigate, useParams} from "react-router-dom";
 import {useEffect, useState} from "react";
-import API from "../../api/api";
 import "./profile.css"
-import "../../style/base.css"
+import "@/style/base.css"
+import {getProfile} from "@/apis/user";
 
 function Profile() {
     document.title = "プロフィール"
@@ -13,9 +13,12 @@ function Profile() {
     const navigate = useNavigate();
     const [profile, setProfile] = useState({})
     useEffect(() => {
-        API.getProfile({user_id: userId}).then((res)=>{
-            setProfile(res)
-        })
+        getProfile(
+            {user_id: userId},
+            (data) => {
+                setProfile(data)
+            }
+        )
     }, [userId]);
     return <Flex vertical={true}>
         <AppHeader onlyShowLogo={false}></AppHeader>

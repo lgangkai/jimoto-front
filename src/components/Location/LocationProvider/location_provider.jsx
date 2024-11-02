@@ -1,7 +1,7 @@
 import {useEffect} from "react";
-import API from "../../../api/api";
 import {useDispatch} from "react-redux";
-import {setLocation} from "../../../store/modules/location";
+import {setLocation} from "@/store/modules/location";
+import {getAddressByLocation} from "@/apis/common";
 
 function LocationProvider() {
     const dispatch = useDispatch()
@@ -9,7 +9,7 @@ function LocationProvider() {
         if (navigator.geolocation) {
             navigator.geolocation.getCurrentPosition(
                 (position) => {
-                    API.getAddressByLocation(position.coords.latitude, position.coords.longitude).then((res) => {
+                    getAddressByLocation(position.coords.latitude, position.coords.longitude).then((res) => {
                         console.log(res)
                         dispatch(setLocation({
                             latitude: position.coords.latitude,
