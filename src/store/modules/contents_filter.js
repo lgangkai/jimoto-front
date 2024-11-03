@@ -7,16 +7,23 @@ export const ContentsFilterMap = {
 
 export const ContentsOrderMap = {
     0: {text: "新着順", urlParam: "latest"},
-    1: {text: "値段の安い順", urlParam: "cheapest"},
-    2: {text: "値段の高い順", urlParam: "highest"},
-    3: {text: "いいね順", urlParam: "most-liked"},
+    1: {text: "場所の近い順", urlParam: "nearest"},
+    2: {text: "値段の安い順", urlParam: "cheapest"},
+    3: {text: "値段の高い順", urlParam: "highest"},
+    4: {text: "いいね順", urlParam: "most-liked"},
 }
+
+export const DefaultPageSize = 100
 
 const contentsFilterStore = createSlice({
     name: "contents_filter",
     initialState: {
         selectedFilter: 0,
-        selectedOrder: 0
+        selectedOrder: 0,
+        page: {
+            page: 1,
+            pageSize: DefaultPageSize,
+        },
     },
     reducers: {
         setSelectedFilter(state, action) {
@@ -24,13 +31,16 @@ const contentsFilterStore = createSlice({
         },
         setSelectedOrder(state, action) {
             state.selectedOrder = action.payload;
+        },
+        setPage(state, action) {
+            state.page = action.payload;
         }
     }
 })
 
-const { setSelectedFilter, setSelectedOrder } = contentsFilterStore.actions
+const { setSelectedFilter, setSelectedOrder, setPage } = contentsFilterStore.actions
 
 const contentsFilterReducer = contentsFilterStore.reducer
 
-export { setSelectedFilter, setSelectedOrder }
+export { setSelectedFilter, setSelectedOrder, setPage }
 export default contentsFilterReducer

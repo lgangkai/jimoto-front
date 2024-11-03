@@ -1,11 +1,13 @@
-import nothing from "@/assets/icons/nothing.png"
+import failed from "@/assets/icons/load_failed.png"
 import loading from "@/assets/icons/loading-contents.gif"
+import nothing from "@/assets/icons/nothing.png"
 import "./loadable.css"
 
 export const LoadState = {
     Loading: 0,
     LoadSuccess: 1,
     LoadFailure: 2,
+    LoadNothing: 3
 }
 
 function Loadable(props) {
@@ -15,9 +17,13 @@ function Loadable(props) {
         </div>
     } else if (props.state === LoadState.LoadSuccess) {
         return props.children
+    } else if (props.state === LoadState.LoadNothing) {
+        return <div className="loadable-div">
+            <img src={nothing} width="100px" height="100px"></img>
+        </div>
     } else {
         return <div className="loadable-div">
-            <img src={nothing} width="80px" height="80px"></img>
+            <img src={failed} width="80px" height="80px"></img>
         </div>
     }
 }
