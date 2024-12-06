@@ -11,7 +11,7 @@ const { Search } = Input;
 function AppHeader({onlyShowLogo}) {
     const navigate = useNavigate();
     return <Header className="app-header">
-        <LocationTab/>
+        <LocationTab onlyShowLogo={onlyShowLogo}/>
         <img
             className="logo-click-home"
             src={logo}

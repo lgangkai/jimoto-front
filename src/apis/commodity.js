@@ -61,6 +61,16 @@ export function getCommodities(params = {}, onSuccess, onFailure) {
     })
 }
 
+export function getUserSoldCommodities(onSuccess, onFailure) {
+    return request({
+        url: "commodities/sold",
+        method: "GET",
+    }).then(resp => {onSuccess(JSON.parse(resp.data))}).catch((e)=> {
+        console.log(e)
+        onFailure()
+    })
+}
+
 export function publishCommodity(formData, onSuccess, onFailure) {
     return request({
         url: "commodity",

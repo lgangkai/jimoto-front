@@ -13,7 +13,7 @@ export const ContentsOrderMap = {
     4: {text: "いいね順", urlParam: "most-liked"},
 }
 
-export const DefaultPageSize = 100
+export const DefaultPageSize = 20
 
 const contentsFilterStore = createSlice({
     name: "contents_filter",

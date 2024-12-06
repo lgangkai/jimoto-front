@@ -22,3 +22,13 @@
     font-weight: bold;
     margin-left: 10px;
 }
+
+.profile-commodities-div {
+    width: 80%;
+    align-self: center;
+
+}
+
+.profile-commodities-content-div {
+    display: flex;
+}

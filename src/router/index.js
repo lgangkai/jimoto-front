@@ -9,6 +9,8 @@ import Publish from "../pages/Publish/publish";
 import LikeList from "../pages/LikeList/like_list";
 import Profile from "../pages/Profile/profile";
 import ProfileEdit from "../pages/ProfileEdit/profile_edit";
+import TransactionConfirm from "@/pages/Transaction/TransactionConfirm/transaction_confirm";
+import TransactionList from "@/pages/TransactionList/transaction_list";
 
 const routes = [
     {
@@ -46,6 +48,10 @@ const routes = [
     {
         path: "/profile-edit",
         element: (<ProfileEdit></ProfileEdit>)
+    },
+    {
+        path: "/transaction-list",
+        element: (<AuthRouter><TransactionList></TransactionList></AuthRouter>)
     },
     {
         path: "*",

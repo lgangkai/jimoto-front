@@ -1,3 +1,12 @@
+# JIMOTO-front
+#### JIMOTO is an EC(online market) service for local (jimoto in Japanese) people to buy and sell second-hand things and services.
+
+This repo is the front of jimoto, which is based on Javascript, React, react-create-app, redux, and antd.
+
+For the backend of jimoto please refer: <a href = "https://github.com/lgangkai/jimoto">jimoto-backend<a/>.
+
+<img src="./jimoto.png" width="700px" alt="jimoto-home"/>
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

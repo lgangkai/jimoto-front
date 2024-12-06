@@ -2,6 +2,7 @@ import failed from "@/assets/icons/load_failed.png"
 import loading from "@/assets/icons/loading-contents.gif"
 import nothing from "@/assets/icons/nothing.png"
 import "./loadable.css"
+import {Button} from "antd";
 
 export const LoadState = {
     Loading: 0,
@@ -24,6 +25,9 @@ function Loadable(props) {
     } else {
         return <div className="loadable-div">
             <img src={failed} width="80px" height="80px"></img>
+            <Button className="loadable-refresh-btn" onClick={()=>window.location.reload()}>
+                リフレッシュする
+            </Button>
         </div>
     }
 }

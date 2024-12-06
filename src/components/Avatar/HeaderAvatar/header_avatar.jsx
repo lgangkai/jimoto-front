@@ -21,7 +21,7 @@ function HeaderAvatar() {
             key: '0',
         },
         {
-            label: <div>取引履歴</div>,
+            label: <div onClick={()=>navigate(`/transaction-list`)}>取引一覧</div>,
             key: '1',
         },
         {
@@ -40,7 +40,6 @@ function HeaderAvatar() {
     useEffect(() => {
         getUserIdIfIsLogin().then((data)=> {
             setUId(data)
-            console.log(data);
         })
     }, [])
     return <Dropdown className={"avatar-dropdown"} menu={{ items }} trigger={['click']}>

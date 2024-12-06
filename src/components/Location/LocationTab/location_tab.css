@@ -9,3 +9,7 @@
     overflow: hidden;
     text-overflow: ellipsis;
 }
+
+.location-tab.invisible {
+    visibility: hidden;
+}

@@ -44,7 +44,7 @@ function ContentList() {
             <Row justify="center" align="top">
                 {post.map((item, i) => {
                     return (
-                        <Item title={item.title} image={item.cover} price={item.price} key={i} id={item.id}></Item>
+                        <Item title={item.title} image={item.cover} price={item.price} key={i} id={item.id} status={item.status}></Item>
                     );
                 })}
             </Row>

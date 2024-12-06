@@ -7,7 +7,7 @@ export function commonErrorHandler(err) {
 }
 
 export function getUploadApiUrl() {
-    return process.env.REACT_APP_JIMOTO_API_BASE_URL + 'apis/services/image/action/upload'
+    return process.env.REACT_APP_JIMOTO_API_BASE_URL + 'api/services/image/action/upload'
 }
 
 export async function getAddressByLocation(latitude, longitude) {

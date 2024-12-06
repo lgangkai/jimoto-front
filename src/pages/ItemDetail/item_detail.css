@@ -32,3 +32,14 @@
     font-weight:bold;
     margin-left: 10px;
 }
+
+.item-detail-buy-btn.sold {
+    width: 50%;
+    height: 40px;
+    font-size: 16px;
+    font-weight:bold;
+    margin-left: 10px;
+    background-color: #ebebeb;
+    color: dimgray;
+    pointer-events: none;
+}

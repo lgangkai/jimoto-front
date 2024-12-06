@@ -1,0 +1,39 @@
+.transaction-confirm-div {
+    padding: 20px;
+    align-self: center;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+}
+
+.transaction-confirm-item-div {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+}
+
+.transaction-confirm-item-text {
+    margin-left: 20px;
+}
+
+.transaction-confirm-item-text-title {
+    height: 50%;
+}
+
+.transaction-confirm-btn-group {
+    display: flex;
+    flex-direction: row;
+    margin-top: 20px;
+}
+
+.transaction-confirm-btn {
+    font-size: 15px;
+    font-weight: bold;
+    width: 200px;
+    height: 40px;
+    margin-left: 10px;
+    margin-right: 10px;
+}
