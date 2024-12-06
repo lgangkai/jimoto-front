@@ -5,7 +5,8 @@ This repo is the front of jimoto, which is based on Javascript, React, react-cre
 
 For the backend of jimoto please refer: <a href = "https://github.com/lgangkai/jimoto">jimoto-backend<a/>.
 
-<img src="./jimoto.png" width="700px" alt="jimoto-home"/>
+## Home
+<img src="./jimoto.png" width="600px" alt="jimoto-home"/>
 
 # Getting Started with Create React App
 
