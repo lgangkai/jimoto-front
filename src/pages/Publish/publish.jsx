@@ -4,15 +4,16 @@ import React, {useState} from "react";
 import ImageGroupUploader from "@/pages/Publish/Components/ImageGroupUploader/image_group_uploader";
 import {Button, ConfigProvider, Flex, Form, Input, InputNumber, message} from "antd";
 import TextArea from "antd/es/input/TextArea";
-import {useNavigate} from "react-router-dom";
+import {useNavigate, useParams} from "react-router-dom";
 import "@/style/base.css"
 import "./publish.css"
 import {useSelector} from "react-redux";
 import {publishCommodity} from "@/apis/commodity";
 
 function Publish() {
-    document.title = "ジモト ｰ 投稿"
+    document.title = "ジモト ｰ ポスト"
     const navigate = useNavigate();
+    const publishType = useParams()["type"]
     const [form] = Form.useForm();
     const [messageApi, contextHolder] = message.useMessage();
     const {latitude, longitude, displayAddress} = useSelector(state => state.location)
@@ -20,7 +21,7 @@ function Publish() {
         console.log('Received values of form: ', values);
         publishCommodity(
             values,
-            () => messageApi.success("投稿完了", 1, ()=>navigate(-1)),
+            () => messageApi.success("ポスト完了", 1, ()=>navigate(-1)),
             (err) => {
                 console.log(err)
                 if (err.response?.status === 401) {
@@ -41,11 +42,12 @@ function Publish() {
         form.setFieldsValue({images: imgs.join(",")})
     }
     form.setFieldsValue({latitude:latitude,longitude:longitude})
+    form.setFieldsValue({type:publishType==="sell"?0:1})
     return <Flex vertical={true}>
         {contextHolder}
         <AppHeader onlyShowLogo={true}/>
         <BackIcon/>
-        <div className="text-title-h1-center">商品の投稿</div>
+        <div className="text-title-h1-center">{ publishType==="buy"?"コレ買いたい":"コレ売りたい" }</div>
         <Form className="layout-form-center-container" onFinish={onFinish} form={form}>
             <div className="text-title-h3">画像選択（最大8枚）</div>
             <div className="image-group-selector-div">
@@ -89,14 +91,14 @@ function Publish() {
                         className="publish-text-area-description"
                         showCount
                         maxLength={100}
-                        placeholder="状態、材質など。なるべく詳しい説明してください"
+                        placeholder={publishType==="buy"?"どんな物買いたいですか？":"状態、材質など。なるべく詳しい説明してください"}
                     />
                 </Form.Item>
-                <div className="text-title-h2">価格</div>
+                <div className="text-title-h2">希望価格</div>
                 <Form.Item name={"price"} rules={[
                     {
                         required: true,
-                        message: "価格を入力してください!"
+                        message: "希望価格を入力してください!"
                     }
                 ]}>
                     <InputNumber className="publish-price-area" prefix="￥" placeholder={0}/>
@@ -105,6 +107,7 @@ function Publish() {
                 <div className="publish-display-address">{displayAddress}</div>
                 <Form.Item className="form-item-not-display" name={"latitude"}/>
                 <Form.Item className="form-item-not-display" name={"longitude"}/>
+                <Form.Item className="form-item-not-display" name={"type"}/>
                 <Form.Item>
                     <Button className="publish-btn" type="primary" htmlType="submit">投稿</Button>
                 </Form.Item>

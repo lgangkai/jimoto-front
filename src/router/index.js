@@ -30,7 +30,7 @@ const routes = [
         element: (<ItemDetail></ItemDetail>)
     },
     {
-        path: "/publish",
+        path: "/publish/:type",
         element: (<AuthRouter><Publish></Publish></AuthRouter>)
     },
     {

@@ -4,13 +4,19 @@ import {Pagination, Row} from 'antd';
 import Item from "./item";
 import {getCommodities} from "@/apis/commodity";
 import {useDispatch, useSelector} from "react-redux";
-import {ContentsFilterMap, ContentsOrderMap, DefaultPageSize, setPage} from "@/store/modules/contents_filter";
+import {
+    ContentsFilterMap,
+    ContentsOrderMap,
+    ContentsTypeMap,
+    DefaultPageSize,
+    setPage
+} from "@/store/modules/contents_filter";
 import Loadable, {LoadState} from "@/components/Loadable/loadable";
 import "./content_list.css"
 
 function ContentList() {
     const dispatch = useDispatch();
-    const {selectedFilter, selectedOrder, page} = useSelector((state) => state.contents_filter);
+    const {selectedType, selectedFilter, selectedOrder, page} = useSelector((state) => state.contents_filter);
     const [state, setState] = useState(LoadState.Loading);
     const [post, setPost] = useState([]);
     const [count, setCount] = useState(1);
@@ -26,6 +32,7 @@ function ContentList() {
             order_type: ContentsOrderMap[selectedOrder].urlParam,
             page: page.page,
             page_size: page.pageSize,
+            type:  ContentsTypeMap[selectedType].urlParam,
         },(data)=> {
             setPost(data.commodities)
             setCount(data.count)
@@ -37,7 +44,7 @@ function ContentList() {
         }, () => {
             setState(LoadState.LoadFailure)
         })
-    }, [selectedFilter, selectedOrder, page])
+    }, [selectedType, selectedFilter, selectedOrder, page])
 
     return <>
         <Loadable state={state}>

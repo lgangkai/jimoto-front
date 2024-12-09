@@ -1,5 +1,10 @@
 import {createSlice} from "@reduxjs/toolkit";
 
+export const ContentsTypeMap = {
+    0: {text: "販売ポスト", urlParam: "sell"},
+    1: {text: "購入ポスト", urlParam: "buy"}
+}
+
 export const ContentsFilterMap = {
     0: {text: "全ての商品", urlParam: "all"},
     1: {text: "販売中のみ", urlParam: "publishing"},
@@ -13,11 +18,12 @@ export const ContentsOrderMap = {
     4: {text: "いいね順", urlParam: "most-liked"},
 }
 
-export const DefaultPageSize = 20
+export const DefaultPageSize = 18
 
 const contentsFilterStore = createSlice({
     name: "contents_filter",
     initialState: {
+        selectedType: 0,
         selectedFilter: 0,
         selectedOrder: 0,
         page: {
@@ -26,6 +32,9 @@ const contentsFilterStore = createSlice({
         },
     },
     reducers: {
+        setSelectedType(state, action) {
+            state.selectedType = action.payload;
+        },
         setSelectedFilter(state, action) {
             state.selectedFilter = action.payload;
         },
@@ -38,9 +47,9 @@ const contentsFilterStore = createSlice({
     }
 })
 
-const { setSelectedFilter, setSelectedOrder, setPage } = contentsFilterStore.actions
+const { setSelectedType, setSelectedFilter, setSelectedOrder, setPage } = contentsFilterStore.actions
 
 const contentsFilterReducer = contentsFilterStore.reducer
 
-export { setSelectedFilter, setSelectedOrder, setPage }
+export { setSelectedType, setSelectedFilter, setSelectedOrder, setPage }
 export default contentsFilterReducer
